@@ -1,0 +1,106 @@
+<%+header%>
+  <div class="page-title-container">
+    <div class="page-title-selector">
+      <div class="selected-mode">
+        <span class="title-text">Clients Connections</span>
+        <span class="dropdown-arrow">▼</span>
+      </div>
+      <div class="mode-dropdown">
+        <div class="mode-option selected" data-mode="clients">Clients Connections</div>
+        <div class="mode-option" data-mode="router">Router Connections</div>
+        <div class="mode-option" data-mode="all">Client & Router Connections</div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="card">
+      <h2>Incoming vs Outgoing Traffic</h2>
+      <div id="trafficPieModule">
+        <canvas id="trafficPieChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Connections - Map</h2>
+      <div id="clusterMapModule"></div>
+    </div>
+
+    <div class="card">
+      <h2>Connections by Country</h2>
+      <div id="mapModule"></div>
+    </div>
+
+    <div class="card">
+      <h2>Top Clients by Bandwidth</h2>
+      <div id="topClientsModule"></div>
+    </div>
+    
+    <div class="card">
+      <h2>Top Domains</h2>
+      <div id="domainsModule">
+        <canvas id="domainsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Bandwidth by Protocol</h2>
+      <div id="protocolsModule">
+        <canvas id="protocolsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Connections by Protocol</h2>
+      <div id="protocolsConnectionsModule">
+        <canvas id="protocolsConnectionsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>ASN Top Talkers</h2>
+      <div id="asnModule">
+        <canvas id="asnChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Top Destination Ports</h2>
+      <div id="portsModule">
+        <canvas id="portsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Connection Durations Distribution</h2>
+      <div id="durationsModule">
+        <canvas id="durationsChart"></canvas>
+      </div>
+    </div>
+
+  </main>
+<%+footer%>
+
+<%=head%>
+  <script type="text/javascript">//<![CDATA[
+    var Luci = L;
+  //]]></script>
+
+  <link rel="stylesheet" href="<%=resource%>/network_monitoring/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Removed: <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@2.0.0"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.2.0"></script>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  <script>
+    // Initialize Leaflet and MarkerCluster
+    var Leaflet = L.noConflict();
+    var MarkerClusterGroup = Leaflet.markerClusterGroup;
+  </script>
+  <script src="<%=resource%>/network_monitoring/snapshot_view.js"></script>

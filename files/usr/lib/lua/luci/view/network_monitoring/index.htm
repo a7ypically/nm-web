@@ -1,0 +1,114 @@
+<%+header%>
+  <main class="container">
+    <div class="card">
+      <h2>Bandwidth Usage Over Time</h2>
+      <div id="bandwidthModule">
+        <canvas id="bandwidthChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Connections by Country</h2>
+      <div id="mapModule"></div>
+    </div>
+
+    <div class="card">
+      <h2>Top Domains</h2>
+      <div id="domainsModule">
+        <canvas id="domainsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>DNS Requests Over Time</h2>
+      <div id="dnsModule">
+        <canvas id="dnsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Network Graph Visualization</h2>
+      <div id="networkModule">
+        <div id="networkGraph"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Bandwidth by Protocol</h2>
+      <div id="protocolsModule">
+        <canvas id="protocolsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Incoming vs Outgoing Traffic</h2>
+      <div id="trafficPieModule">
+        <canvas id="trafficPieChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Connections Count Over Time</h2>
+      <div id="connectionsModule">
+        <canvas id="connectionsCountChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>ASN Top Talkers</h2>
+      <div id="asnModule">
+        <canvas id="asnChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Top Destination Ports</h2>
+      <div id="portsModule">
+        <canvas id="portsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Host Traffic Rankings</h2>
+      <div id="hostsModule">
+        <canvas id="hostsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Notifications by Reason</h2>
+      <div id="notificationsModule">
+        <canvas id="notificationsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Connection Durations Distribution</h2>
+      <div id="durationsModule">
+        <canvas id="durationsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Top 5 Clients by Bandwidth on Map</h2>
+      <div id="topClientsMapModule"></div>
+    </div>
+  </main>
+<%+footer%>
+
+<%=head%>
+  <link rel="stylesheet" href="<%=resource%>/network_monitoring/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@2.0.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.2.0"></script>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/browse/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script>
+    var Leaflet = L.noConflict();
+    // Use Leaflet instead of L for all Leaflet-related code
+  </script>
+  <script src="<%=resource%>/network_monitoring/script.js"></script>
+
